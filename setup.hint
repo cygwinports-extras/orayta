@@ -1,7 +1,12 @@
 category: Religion
-requires: libgcc1 libQtCore4 libQtGui4 libQtWebKit4 libstdc++6 orayta-books
+requires: libgcc1 libQtCore4 libQtGui4 libQtWebKit4 libstdc++6
 sdesc: "Jewish book library"
 ldesc: "Orayta ('Torah' in Aramaic), intends to give simple access to as 
 many Jewish sources as possible, from the Bible, Mishna and Talmud, to 
 books written in the last years, freely and off-line. This project is 
-based on the great 'Torah Emet' project, but is developed seperately."
+based on the great 'Torah Emet' project, but is developed seperately.
+
+Due to limitations in setup.exe, you must manually download the book
+data used by this program from the upstream Subversion repository
+
+svn checkout http://orayta.googlecode.com/svn/books /usr/share/Orayta/Books"
