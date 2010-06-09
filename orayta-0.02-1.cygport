@@ -1,0 +1,15 @@
+SVN_URI="http://orayta.googlecode.com/svn/"
+SVN_MODULE=${PN}
+inherit qt4-qmake svn
+
+DESCRIPTION="Jewish book library"
+HOMEPAGE="http://code.google.com/p/orayta/"
+
+PATCH_URI="
+	0.02-install-bin.patch
+	0.02-qtwebkit-only.patch
+"
+
+DISTCLEANFILES="Makefile* moc_*.cpp Orayta"
+
+DOCS="gpl-2.0.txt License.txt"

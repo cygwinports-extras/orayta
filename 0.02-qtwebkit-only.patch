@@ -1,0 +1,18 @@
+Upstream claims KHTML is faster then QtWebKit, but it comes with a lot 
+of overhead for a program which isn't really KDE-integrated.
+
+Besides, it looks like KHTML is giving way to (K)WebKit anyway.
+
+--- origsrc/orayta/Orayta.pro	2010-06-06 03:05:54.000000000 -0500
++++ src/orayta/Orayta.pro	2010-06-08 19:52:30.081016200 -0500
+@@ -6,10 +6,6 @@ QT += webkit
+ TARGET = Orayta
+ TEMPLATE = app
+ 
+-!win32 {
+-    CONFIG += khtml
+-}
+-
+ khtml {
+     DEFINES += KHTML
+ }
