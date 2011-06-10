@@ -1,5 +1,5 @@
 category: Religion
-requires: libgcc1 libQtCore4 libQtGui4 libQtWebKit4 libstdc++6
+requires: libfribidi0 libgcc1 libpoppler-qt4_3 libQtCore4 libQtGui4 libQtWebKit4 libstdc++6 subversion
 sdesc: "Jewish book library"
 ldesc: "Orayta ('Torah' in Aramaic), intends to give simple access to as 
 many Jewish sources as possible, from the Bible, Mishna and Talmud, to 
