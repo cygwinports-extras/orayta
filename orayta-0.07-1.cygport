@@ -5,7 +5,8 @@ inherit qt4-qmake svn
 DESCRIPTION="Jewish book library"
 HOMEPAGE="http://code.google.com/p/orayta/"
 
-PATCH_URI="0.07-no-android.patch"
+PATCH_URI="0.07-tmpdir.patch
+	   0.07-no-android.patch"
 
 DISTCLEANFILES="Makefile* moc_*.cpp Orayta"
 

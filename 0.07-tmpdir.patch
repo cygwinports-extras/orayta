@@ -1,0 +1,48 @@
+--- origsrc/orayta/main.cpp	2012-06-14 23:43:19.000000000 -0500
++++ src/orayta/main.cpp	2012-06-14 23:51:47.297250100 -0500
+@@ -34,6 +34,7 @@
+ #include <QDesktopWidget>
+ #include <QPainter>
+ #include <QRect>
++#include <QDesktopServices>
+ 
+ //For test only
+ //#define MOBILE
+@@ -52,7 +53,7 @@ void initPaths()
+ //    MAINPATH = "/sdcard/Orayta/";
+     //set terget to assets folder
+     MAINPATH = "/Orayta/";
+-#elif defined Q_OS_LINUX
++#elif defined Q_OS_LINUX || defined Q_OS_CYGWIN
+     defPath = "/usr/share/Orayta/Books/";
+     MAINPATH = "/usr/share/Orayta/";
+ #elif defined Q_OS_WIN
+@@ -77,11 +78,11 @@ void initPaths()
+     if (dir.exists()) TMPPATH = dir.absolutePath() + "/";
+     else
+     {
+-        //Improved by Yoch. Thanks again.
+-        dir.mkdir(QDir::tempPath() + "/Orayta/");
+-        dir.mkdir(QDir::tempPath() + "/Orayta/Htmltmp/");
++        QString cachedir = QDesktopServices::storageLocation(QDesktopServices::CacheLocation);
++        dir.mkdir(cachedir + "/Orayta/");
++        dir.mkdir(cachedir + "/Orayta/Htmltmp/");
+ 
+-        TMPPATH = QDir::tempPath() + "/Orayta/Htmltmp/";
++        TMPPATH = cachedir + "/Orayta/Htmltmp/";
+     }
+ 
+     dir.setPath("Pics/");
+@@ -90,10 +91,8 @@ void initPaths()
+         //UNIX ONLY:
+         #ifndef Q_WS_WIN    //Yoch's idea. Thank you very much :-)
+             //Create symbolic link to the folder
+-
+-            //TODO: this should be solved in a different way. the html files should be corrected so the link is to the right place
+-
+-            system("ln -s -T /tmp/Orayta/Pics /usr/share/Orayta/Books/Pics 2> /dev/null");
++            QFile file(BOOKPATH + "/Pics");
++            file.link(TMPPATH + "../Pics");
+         #endif
+     }
+ }
